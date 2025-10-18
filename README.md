@@ -154,5 +154,47 @@ docker-compose down -v --remove-orphans
 - Use `docker-compose up` for local development
 - Modify `docker-compose.yml` to add frontend service when ready
 - Use volume mounting for live code changes during development
-- Check logs with `docker-compose logs backend`# mern_stack_sample_airbnb
+- Check logs with `docker-compose logs backend`
+
+## 🚀 AWS Deployment
+
+This application includes comprehensive AWS deployment configurations:
+
+### Quick Deploy Options:
+
+1. **🎯 AWS App Runner** (Easiest - Recommended for beginners)
+   ```bash
+   ./aws/deploy-apprunner.sh
+   # Follow the console instructions
+   ```
+
+2. **🏗️ ECS Fargate** (Production-ready)
+   ```bash
+   # Edit deploy.sh with your AWS Account ID
+   ./aws/deploy.sh
+   ```
+
+3. **🖥️ EC2** (Full control)
+   ```bash
+   # Launch EC2 instance and run:
+   docker-compose up -d
+   ```
+
+### 📚 Detailed Guides:
+- [Complete Deployment Guide](aws/DEPLOYMENT_GUIDE.md)
+- [Infrastructure as Code (Terraform)](aws/main.tf)
+- [CI/CD Pipeline](.github/workflows/deploy.yml)
+
+### 💰 Estimated AWS Costs:
+- **App Runner**: $15-50/month
+- **ECS Fargate**: $30-100/month  
+- **EC2**: $15-30/month
+
+### 🔧 Required AWS Setup:
+1. Install & configure AWS CLI
+2. Set up ECR repositories
+3. Configure environment variables
+4. Deploy infrastructure
+
+See [aws/DEPLOYMENT_GUIDE.md](aws/DEPLOYMENT_GUIDE.md) for step-by-step instructions.# mern_stack_sample_airbnb
 # mern_stack_sample_airbnb
