@@ -1,0 +1,14 @@
+version: 1.0
+runtime: docker
+build:
+  commands:
+    build:
+      - echo "Building frontend application with Docker"
+run:
+  runtime-version: latest
+  command: nginx -g 'daemon off;'
+  network:
+    port: 80
+  env:
+    - name: REACT_APP_API_URL
+      value: "https://YOUR_BACKEND_URL/api"
