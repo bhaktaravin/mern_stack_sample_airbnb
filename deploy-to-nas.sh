@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# NAS Deployment Script
+# UGREEN NAS Deployment Script
 # Usage: ./deploy-to-nas.sh
 
-NAS_USER="your-nas-username"
-NAS_IP="your-nas-ip"
-NAS_PATH="/volume1/docker/sample_airbnb"  # Adjust for your NAS path
+NAS_USER="admin"  # UGREEN default admin user
+NAS_IP="192.168.1.XXX"  # Change to your UGREEN NAS IP
+NAS_PATH="/mnt/data/docker/sample_airbnb"  # UGREEN default docker path
 
 echo "🚀 Deploying to NAS..."
 
