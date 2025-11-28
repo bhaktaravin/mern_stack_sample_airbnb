@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 connectDB();
-console.log("Connecting to MongoDB...", process.env.MONGODB_URI);
+console.log("Connecting to MongoDB...", process.env.MONGO_URI);
 
 
 app.use('/api', router);
