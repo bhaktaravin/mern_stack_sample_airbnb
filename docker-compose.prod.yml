@@ -9,7 +9,7 @@ services:
     ports:
       - "18047:5000"
     environment:
-      - MONGO_URI=mongodb+srv://bhaktaravin:bhaktaravin@cluster0.lnxnu.mongodb.net/sample_airbnb?retryWrites=true&w=majority&appName=Cluster0
+      - MONGO_URI=mongodb://bhaktaravin:bhaktaravin@cluster0-shard-00-00.lnxnu.mongodb.net:27017,cluster0-shard-00-01.lnxnu.mongodb.net:27017,cluster0-shard-00-02.lnxnu.mongodb.net:27017/sample_airbnb?ssl=true&replicaSet=atlas-l540kb-shard-0&authSource=admin&retryWrites=true&w=majority
       - PORT=5000
     dns:
       - 8.8.8.8
