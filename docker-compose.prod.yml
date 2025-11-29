@@ -11,6 +11,9 @@ services:
     environment:
       - MONGO_URI=mongodb+srv://bhaktaravin:bhaktaravin@cluster0.lnxnu.mongodb.net/sample_airbnb?retryWrites=true&w=majority&appName=Cluster0
       - PORT=5000
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     restart: unless-stopped
     networks:
       - airbnb-network
