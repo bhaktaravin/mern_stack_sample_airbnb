@@ -1,13 +1,10 @@
+
 import express from "express";
 import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 import connectDB from "./config/conn.js";
 import cors from 'cors';
 import router from "./routes/route.js";
-
-// Load environment variables only if not already set (Docker provides them)
-if (!process.env.MONGO_URI) {
-  dotenv.config({ path: './.env' });
-}
 
 const PORT = process.env.PORT || 5000;
 const app = express();
