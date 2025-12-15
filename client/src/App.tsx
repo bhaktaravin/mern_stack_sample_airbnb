@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import { listingsAPI, FilterParams, Listing, ListingsResponse } from './services/api';
 import Filters from './components/Filters';
@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     fetchListings(currentFilters);
-  }, []);
+  }, [currentFilters]);
 
   const handleFilterChange = (filters: FilterParams) => {
     const newFilters = { ...filters, limit: currentFilters.limit };
