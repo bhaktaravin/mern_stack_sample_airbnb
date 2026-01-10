@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 // Schema that matches the actual MongoDB document structure
 const listingSchema = new mongoose.Schema({
     _id: String, // In your data, _id is a string, not ObjectId
+    slug: { type: String, unique: true, index: true },
     listing_url: String,
     name: String,
     summary: String,

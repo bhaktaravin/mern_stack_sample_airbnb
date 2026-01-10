@@ -6,9 +6,24 @@ import mongoose from 'mongoose';
 
 
 // Create a new listing
+// Helper to generate slug from name
+function slugify(text) {
+    return text
+        .toString()
+        .toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^a-z0-9\-]/g, '')    // Remove all non-alphanumeric except -
+        .replace(/-+/g, '-')             // Replace multiple - with single -
+        .replace(/^-+|-+$/g, '');        // Trim - from start/end
+}
+
 export const createListing = async (req, res) => {
     try {
-        const newListing = new Listing(req.body);
+        const data = req.body;
+        if (data.name) {
+            data.slug = slugify(data.name);
+        }
+        const newListing = new Listing(data);
         const savedListing = await newListing.save();
         res.status(201).json(savedListing);
     } catch (error) {

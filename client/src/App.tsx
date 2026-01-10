@@ -69,7 +69,7 @@ function ListingsMain() {
 
   const navigate = useNavigate();
   const handleListingClick = (listing: Listing) => {
-    navigate(`/listing/${listing._id}`);
+    navigate(`/listing/${listing.slug}`);
   };
 
   return (

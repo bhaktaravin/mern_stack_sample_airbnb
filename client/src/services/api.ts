@@ -4,6 +4,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api
 
 export interface Listing {
   _id: string;
+  slug?: string;
   name: string;
   summary: string;
   description: string;
