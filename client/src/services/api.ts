@@ -67,19 +67,19 @@ const api = axios.create({
 export const listingsAPI = {
   getListings: async (filters: FilterParams = {}): Promise<ListingsResponse> => {
     const params = new URLSearchParams();
-    
     Object.entries(filters).forEach(([key, value]) => {
       if (value !== undefined && value !== null && value !== '') {
         params.append(key, value.toString());
       }
     });
-
-    const response = await api.get(`/listings?${params.toString()}`);
+    // Only one /listings in the path
+    const response = await api.get(`listings?${params.toString()}`);
     return response.data;
   },
 
   getListingBySlug: async (slug: string): Promise<Listing> => {
-    const response = await api.get(`/listings/${slug}`);
+    // Only one /listings in the path
+    const response = await api.get(`listings/${slug}`);
     return response.data;
   }
 };

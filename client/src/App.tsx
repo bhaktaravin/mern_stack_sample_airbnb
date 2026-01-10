@@ -1,11 +1,13 @@
 import React, { useState, useEffect} from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import { listingsAPI, FilterParams, Listing, ListingsResponse } from './services/api';
 import Filters from './components/Filters';
 import ListingCard from './components/ListingCard';
 import Pagination from './components/Pagination';
+import ListingDetails from './components/ListingDetails';
 
-function App() {
+function ListingsMain() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -65,10 +67,9 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navigate = useNavigate();
   const handleListingClick = (listing: Listing) => {
-    // For now, just log the listing. You can implement a modal or navigation here
-    console.log('Clicked listing:', listing);
-    alert(`Clicked on: ${listing.name}`);
+    navigate(`/listing/${listing._id}`);
   };
 
   return (
@@ -159,6 +160,17 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ListingsMain />} />
+        <Route path="/listing/:id" element={<ListingDetails />} />
+      </Routes>
+    </Router>
   );
 }
 
