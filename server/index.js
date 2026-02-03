@@ -42,5 +42,5 @@ mongoose
 
   // Listening on port, 0.0.0.0:8080 for access from outside
 app.listen(process.env.PORT || 8080 , '  f0.0.0.0', () => {
-    console.log(`Server is running on http://${localhost}:${PORT}`);
+    console.log(`Server is running on http://f0.0.0.0:${PORT}`);
 });
