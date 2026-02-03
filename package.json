@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@types/next": "^8.0.7",
-    "next": "^16.1.1",
-    "web-vitals": "^5.1.0"
-  }
-}
