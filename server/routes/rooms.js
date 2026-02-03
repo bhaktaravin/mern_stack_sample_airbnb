@@ -1,11 +1,15 @@
 import { createClient } from 'redis';
 import { getEmbedding } from '../openaiEmbed.js';
+import express from 'express';
+import Room from "../models/Room.js";
+import redisClient from "../redisClient.js";
+
+const router = express.Router();
 
 const redis = createClient({
   url: process.env.REDIS_URL || 'redis://default:' + process.env.REDIS_API_KEY + '@localhost:6379',
 });
 await redis.connect();
-
 
 // Helper: Index a room in Redis LangCache using OpenAI SDK
 async function indexRoom(room) {
@@ -64,12 +68,6 @@ router.post('/semantic-search', async (req, res) => {
     enhancement: 'Sorted by semantic similarity, returns top N results with scores and supports filtering.'
   });
 });
-// Routes for managing rooms in the application
-import express from "express";
-import Room from "../models/Room.js";
-import redisClient from "../redisClient.js";
-
-const router = express.Router();
 
 // Create a new room (accepts full Room schema)
 router.post("/", async (req, res) => {
